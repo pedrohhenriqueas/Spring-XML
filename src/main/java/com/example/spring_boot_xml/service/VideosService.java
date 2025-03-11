@@ -17,9 +17,8 @@ public class VideosService {
 	@Autowired
 	private VideosRepository repository;
 
-	public ResponseEntity<List<Videos>> findAll(){
-		List<Videos> videos = repository.findAll();
-		return ResponseEntity.ok(videos);
+	public List<Videos> findAll(){
+		return repository.findAll();
 	}
 	
 	public ResponseEntity<List<Videos>> findByTitle(String title){
@@ -36,13 +35,13 @@ public class VideosService {
 	    }	
 	}
 	
-	public ResponseEntity<Videos> postVideo(Videos video){
+	public Videos postVideo(Videos video){
 		Videos videoToPublish = new Videos();
 		videoToPublish.setTitle(video.getTitle());
 		videoToPublish.setDescription(video.getDescription());
 		videoToPublish.isPublished();
 		repository.save(videoToPublish);
-		return ResponseEntity.ok(videoToPublish);
+		return videoToPublish;
 	}
 	
 	public ResponseEntity<?> deleteById(Long id) {

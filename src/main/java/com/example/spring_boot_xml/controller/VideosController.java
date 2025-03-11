@@ -28,12 +28,12 @@ public class VideosController {
 	private VideosService videosService;
 	
 	@GetMapping("/all")
-	public ResponseEntity<List<Videos>> getAllVideos(){
+	public List<Videos> getAllVideos(){
 		return videosService.findAll();
 	}
 	
 	@PostMapping
-	public ResponseEntity<Videos> create(@RequestBody Videos video){
+	public Videos create(@RequestBody Videos video){
 		return videosService.postVideo(video);
 	}
 	
@@ -50,14 +50,14 @@ public class VideosController {
 	@DeleteMapping("/all")
 	public ResponseEntity<?> deleteAll(){
 		videosService.deleteAllVideos();
-		return ResponseEntity.ok("Users deleted successfully!");
+		return ResponseEntity.ok("Videos deleted successfully!");
 
 	}
 	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> deleteById(@PathVariable("id") Long id){
 		videosService.deleteById(id);
-		return ResponseEntity.ok("User deleted successfully!");
+		return ResponseEntity.ok("Video deleted successfully!");
 	}
 	
 }
