@@ -13,6 +13,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring-boot-xml</name>
 	<description>Spring Boot Rest Api With XML Response</description>
+	<packaging>jar</packaging>
 	<url/>
 	<licenses>
 		<license/>

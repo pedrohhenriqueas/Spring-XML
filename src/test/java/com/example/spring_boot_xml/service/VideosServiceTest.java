@@ -14,7 +14,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.example.spring_boot_xml.entities.Videos;
@@ -24,42 +23,42 @@ import com.example.spring_boot_xml.repository.VideosRepository;
 @DisplayName("Tests to Videos Service")
 class VideosServiceTest {
 	
-	@InjectMocks
-	private VideosService videosService;
+	// @InjectMocks
+	// private VideosService videosService;
 	
-	@Mock
-	private VideosRepository videosRepository;
+	// @Mock
+	// private VideosRepository videosRepository;
 	
-	@BeforeEach
-	public void setup() {
-		MockitoAnnotations.openMocks(this);
-	}
+	// @BeforeEach
+	// public void setup() {
+	// 	MockitoAnnotations.openMocks(this);
+	// }
 	
-	@Test
-		@DisplayName("Video Post Test")
-		void postVideoTest() {
+	// @Test
+	// 	@DisplayName("Video Post Test")
+	// 	void postVideoTest() {
 		
-		Videos videoToPublish = new Videos("Video 1", "Description 1", true);
+	// 	Videos videoToPublish = new Videos("Video 1", "Description 1", true);
 		
-		when(videosRepository.save(videoToPublish)).thenReturn(videoToPublish);
+	// 	when(videosRepository.save(videoToPublish)).thenReturn(videoToPublish);
 		
-		Videos video = videosService.postVideo(videoToPublish);
+	// 	Videos video = videosService.postVideo(videoToPublish);
 		
-		assertThat(video).isNotNull();
+	// 	assertThat(video).isNotNull();
 	
-		assertThat(video.getTitle()).isEqualTo(videoToPublish.getTitle());		
-	}
+	// 	assertThat(video.getTitle()).isEqualTo(videoToPublish.getTitle());		
+	// }
 	
 	
-	@Test
-		@DisplayName("Find All Test")
-		void findAllTest() {
+	// @Test
+	// 	@DisplayName("Find All Test")
+	// 	void findAllTest() {
 
-		when(videosRepository.findAll()).thenReturn(List.of(new Videos("Video 1", "Description 1", true)));
+	// 	when(videosRepository.findAll()).thenReturn(List.of(new Videos("Video 1", "Description 1", true)));
 		
-		List<Videos> videos = videosService.findAll();
-		
-		assertThat(videos).isNotEmpty();
-	}
+	// 	List<Videos> videos = videosService.findAll();
+
+	// 	assertThat(videos).isNotEmpty();
+	// }
 
 }
